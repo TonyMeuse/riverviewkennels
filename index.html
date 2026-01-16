@@ -82,45 +82,36 @@
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 1.5rem;
             margin-top: 1.5rem;
-            justify-items: center;           /* Centers cards in grid cells */
         }
 
         .feature-item {
             background: linear-gradient(135deg, #e0f2f1 0%, #b2dfdb 100%);
-            padding: 1.4rem 1.2rem;
+            padding: 1.2rem;
             border-radius: 10px;
             border-left: 4px solid #4db6ac;
             transition: transform 0.3s ease;
-            text-align: center;              /* Centers text */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 130px;               /* More uniform card height */
-            width: 100%;                     /* Full width of grid cell */
-            max-width: 320px;                /* Optional cap for very wide screens */
+            text-align: center;
         }
 
         .feature-item:hover {
-            transform: translateY(-5px);     /* Softer hover effect when centered */
+            transform: translateX(5px);
         }
 
         .feature-item::before {
-            content: "✓";
+            content: "✓ ";
             color: #2e7d32;
             font-weight: bold;
-            font-size: 2.2rem;
-            margin-bottom: 0.6rem;
-            display: block;
+            font-size: 1.3rem;
         }
 
         .rates-table {
             width: 100%;
             margin-top: 1.5rem;
             border-collapse: collapse;
-            border-radius: 10px;
             overflow: hidden;
+            border-radius: 10px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            table-layout: fixed;
         }
 
         .rates-table th {
@@ -129,11 +120,13 @@
             padding: 1rem;
             text-align: left;
             font-size: 1.2rem;
+            white-space: normal;
         }
 
         .rates-table td {
             padding: 1rem;
             border-bottom: 1px solid #e0e0e0;
+            word-wrap: break-word;
         }
 
         .rates-table tr:nth-child(even) {
@@ -211,54 +204,40 @@
             margin-top: 3rem;
         }
 
-        /* Mobile adjustments */
         @media (max-width: 768px) {
-            header h1 { font-size: 2.5rem; }
-            header p  { font-size: 1.2rem; }
-            .section  { padding: 1.8rem; }
-            .section h2 { font-size: 1.9rem; }
-            .contact-info { grid-template-columns: 1fr; }
-
-            .feature-item {
-                padding: 1.5rem 1rem;
-                min-height: 140px;
-                font-size: 1.05rem;
+            header h1 {
+                font-size: 2.5rem;
             }
 
-            .feature-item::before {
-                font-size: 2rem;
+            header p {
+                font-size: 1.2rem;
             }
 
-            /* Table fixes from before – text wraps, no cutoff */
-            .rates-table {
-                table-layout: fixed;
-                width: 100%;
+            .section {
+                padding: 1.5rem;
             }
 
-            .rates-table th,
-            .rates-table td {
-                padding: 0.9rem 0.7rem;
-                overflow-wrap: break-word;
-                word-wrap: break-word;
-                hyphens: auto;
+            .section h2 {
+                font-size: 1.8rem;
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
             }
 
             .rates-table th {
-                font-size: 1.05rem;
-                line-height: 1.3;
+                font-size: 0.9rem;
+                padding: 0.8rem 0.5rem;
             }
 
-            .rates-table.standard th:nth-child(1),
-            .rates-table.standard td:nth-child(1) { width: 44%; }
-            .rates-table.standard th:nth-child(2),
-            .rates-table.standard td:nth-child(2) { width: 28%; }
-            .rates-table.standard th:nth-child(3),
-            .rates-table.standard td:nth-child(3) { width: 28%; }
+            .rates-table td {
+                padding: 0.8rem 0.5rem;
+                font-size: 0.95rem;
+            }
 
-            .rates-table.late th:nth-child(1),
-            .rates-table.late td:nth-child(1) { width: 65%; }
-            .rates-table.late th:nth-child(2),
-            .rates-table.late td:nth-child(2) { width: 35%; }
+            .price {
+                font-size: 1.1rem;
+            }
         }
     </style>
 </head>
@@ -305,8 +284,8 @@
         <div class="section">
             <h2>Our Rates</h2>
             
-            <h3 style="color: #2e7d32; margin: 2rem 0 1rem; font-size: 1.5rem;">Standard Rates</h3>
-            <table class="rates-table standard">
+            <h3 style="color: #2e7d32; margin-top: 2rem; font-size: 1.5rem;">Standard Rates</h3>
+            <table class="rates-table">
                 <thead>
                     <tr>
                         <th>Number of Dogs</th>
@@ -333,9 +312,9 @@
                 </tbody>
             </table>
 
-            <h3 style="color: #2e7d32; margin: 2.5rem 0 1rem; font-size: 1.5rem;">Late Pickup Fees</h3>
-            <p style="margin: 0 0 1rem;">Pick up after 1:00 PM on overnight stays:</p>
-            <table class="rates-table late">
+            <h3 style="color: #2e7d32; margin-top: 2rem; font-size: 1.5rem;">Late Pickup Fees</h3>
+            <p style="margin: 1rem 0;">Pick up after 1:00 PM on overnight stays:</p>
+            <table class="rates-table">
                 <thead>
                     <tr>
                         <th>Number of Dogs</th>
@@ -372,7 +351,7 @@
                 
                 <div class="contact-item">
                     <h3>✉️ Email</h3>
-                    <a href="mailto:info@riverviewkennels.com">info@riverviewkennels.com</a>
+                    <a href="/cdn-cgi/l/email-protection#5522303b312c323420313021153d3a2138343c397b363a38"><span class="__cf_email__" data-cfemail="8afdefe4eef3edebffeeeffecae2e5fee7ebe3e6a4e9e5e7">[email&#160;protected]</span></a>
                 </div>
                 
                 <div class="contact-item">
@@ -398,7 +377,4 @@
 
     <footer>
         <p style="font-size: 1.2rem; margin-bottom: 0.5rem;">🐾 Riverview Kennels 🐾</p>
-        <p>© 2026 Wendy Gaudet – All Rights Reserved</p>
-    </footer>
-</body>
-</html>
+        <p>Where Your Pets Feel at
