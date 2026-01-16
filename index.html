@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riverview Kennels - Dog & Cat Boarding & Daycare</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+        }
+
+        header {
+            background: linear-gradient(135deg, #2e7d32 0%, #388e3c 100%);
+            color: white;
+            text-align: center;
+            padding: 3rem 1rem 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            letter-spacing: 2px;
+        }
+
+        header p {
+            font-size: 1.5rem;
+            font-style: italic;
+            opacity: 0.95;
+        }
+
+        .hero-image {
+            width: 100%;
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            max-height: 500px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .section {
+            background: white;
+            margin: 2rem 0;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .section h2 {
+            color: #2e7d32;
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 3px solid #4db6ac;
+            padding-bottom: 0.5rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .feature-item {
+            background: linear-gradient(135deg, #e0f2f1 0%, #b2dfdb 100%);
+            padding: 1.2rem;
+            border-radius: 10px;
+            border-left: 4px solid #4db6ac;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateX(5px);
+        }
+
+        .feature-item::before {
+            content: "✓ ";
+            color: #2e7d32;
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        .rates-table {
+            width: 100%;
+            margin-top: 1.5rem;
+            border-collapse: collapse;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .rates-table th {
+            background: #2e7d32;
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-size: 1.2rem;
+        }
+
+        .rates-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .rates-table tr:nth-child(even) {
+            background: #f5f5f5;
+        }
+
+        .rates-table tr:hover {
+            background: #e8f5e9;
+        }
+
+        .price {
+            color: #2e7d32;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .contact-section {
+            background: linear-gradient(135deg, #4db6ac 0%, #26a69a 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            color: white;
+            border-bottom-color: white;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            background: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        .alert-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 5px;
+        }
+
+        .alert-box strong {
+            color: #856404;
+        }
+
+        footer {
+            background: #1b5e20;
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+
+            header p {
+                font-size: 1.2rem;
+            }
+
+            .section {
+                padding: 1.5rem;
+            }
+
+            .section h2 {
+                font-size: 1.8rem;
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🐾 Riverview Kennels 🐾</h1>
+        <p>Premium Boarding & Daycare for Your Furry Friends</p>
+    </header>
+
+    <div class="hero-image">
+        <img src="image/property.jpeg" alt="Riverview Kennels Property">
+    </div>
+
+    <div class="container">
+        <div class="section">
+            <h2>Welcome to Riverview Kennels</h2>
+            <p style="font-size: 1.2rem; line-height: 1.8;">
+                Located at <strong>747 Mazard Road, Nova Scotia</strong> (next to Bangor Mill), Riverview Kennels offers premium boarding and daycare services for both dogs and cats. We live on the property and provide 24/7 care with flexible scheduling to meet your needs. Whether you need daycare for the day or overnight boarding during your vacation, your pets will enjoy a safe, comfortable, and fun environment!
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Our Features & Amenities</h2>
+            <div class="features-grid">
+                <div class="feature-item">Open 7 Days a Week<br>& All Holidays</div>
+                <div class="feature-item">No Set Hours<br>Very Flexible</div>
+                <div class="feature-item">We Accept Cats!</div>
+                <div class="feature-item">Heat Pump &<br>Air Conditioning</div>
+                <div class="feature-item">Large Outdoor<br>Run Area</div>
+                <div class="feature-item">10×14 Covered<br>Kennels</div>
+                <div class="feature-item">Pool for Hot<br>Summer Days</div>
+                <div class="feature-item">Covered Shelter<br>Area</div>
+                <div class="feature-item">Individual<br>Sleeping Kennels</div>
+                <div class="feature-item">24/7 Camera<br>Monitoring</div>
+                <div class="feature-item">On-Site Property<br>Owners</div>
+                <div class="feature-item">Gift Certificates<br>Available</div>
+            </div>
+            
+            <div class="alert-box">
+                <strong>Important:</strong> All pets must be fully vaccinated before boarding.
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Our Rates</h2>
+            
+            <h3 style="color: #2e7d32; margin-top: 2rem; font-size: 1.5rem;">Standard Rates</h3>
+            <table class="rates-table">
+                <thead>
+                    <tr>
+                        <th>Number of Dogs</th>
+                        <th>Daycare Rate</th>
+                        <th>Overnight Rate</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1 Dog</td>
+                        <td class="price">$25</td>
+                        <td class="price">$35</td>
+                    </tr>
+                    <tr>
+                        <td>2 Dogs</td>
+                        <td class="price">$35</td>
+                        <td class="price">$45</td>
+                    </tr>
+                    <tr>
+                        <td>3 Dogs</td>
+                        <td class="price">$45</td>
+                        <td class="price">$65</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 style="color: #2e7d32; margin-top: 2rem; font-size: 1.5rem;">Late Pickup Fees</h3>
+            <p style="margin: 1rem 0;">Pick up after 1:00 PM on overnight stays:</p>
+            <table class="rates-table">
+                <thead>
+                    <tr>
+                        <th>Number of Dogs</th>
+                        <th>Additional Fee</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1 Dog</td>
+                        <td class="price">$10</td>
+                    </tr>
+                    <tr>
+                        <td>2 Dogs</td>
+                        <td class="price">$15</td>
+                    </tr>
+                    <tr>
+                        <td>3 Dogs</td>
+                        <td class="price">$20</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section contact-section">
+            <h2>Contact & Booking</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 1rem;">Ready to book? Get in touch with us today!</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h3>📱 Phone/Text</h3>
+                    <a href="tel:9027781383">(902) 778-1383</a>
+                    <p style="margin-top: 0.5rem;">Text to book!</p>
+                </div>
+                
+                <div class="contact-item">
+                    <h3>✉️ Email</h3>
+                    <a href="/cdn-cgi/l/email-protection#5522303b312c323420313021153d3a2138343c397b363a38"><span class="__cf_email__" data-cfemail="8afdefe4eef3edebffeeeffecae2e5fee7ebe3e6a4e9e5e7">[email&#160;protected]</span></a>
+                </div>
+                
+                <div class="contact-item">
+                    <h3>📘 Facebook</h3>
+                    <p>Search for "Riverview Kennels"</p>
+                    <p style="margin-top: 0.5rem;">Message us to book!</p>
+                </div>
+                
+                <div class="contact-item">
+                    <h3>📍 Location</h3>
+                    <p>747 Mazard Road</p>
+                    <p>Nova Scotia</p>
+                    <p style="margin-top: 0.5rem; font-style: italic;">Next to Bangor Mill</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(255,255,255,0.2); border-radius: 10px;">
+                <h3 style="font-size: 1.4rem; margin-bottom: 0.5rem;">Owner: Wendy Gaudet</h3>
+                <p style="font-size: 1.1rem;">Your pets are in caring, experienced hands!</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p style="font-size: 1.2rem; margin-bottom: 0.5rem;">🐾 Riverview Kennels 🐾</p>
+        <p>Where Your Pets Feel at
