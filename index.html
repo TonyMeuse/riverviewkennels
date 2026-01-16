@@ -107,8 +107,8 @@
             width: 100%;
             margin-top: 1.5rem;
             border-collapse: collapse;
-            overflow: hidden;
             border-radius: 10px;
+            overflow: hidden;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
@@ -200,26 +200,42 @@
             margin-top: 3rem;
         }
 
+        /* ────────────────────────────────────────────────
+           MOBILE TABLE FIXES
+        ──────────────────────────────────────────────── */
         @media (max-width: 768px) {
-            header h1 {
-                font-size: 2.5rem;
+            header h1 { font-size: 2.5rem; }
+            header p  { font-size: 1.2rem; }
+            .section  { padding: 1.5rem; }
+            .section h2 { font-size: 1.8rem; }
+            .contact-info { grid-template-columns: 1fr; }
+
+            .rates-table {
+                table-layout: fixed;           /* Prevents column width jumping */
+                width: 100%;
             }
 
-            header p {
-                font-size: 1.2rem;
+            .rates-table th,
+            .rates-table td {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;           /* Keeps content on one line */
+                padding: 0.9rem 0.8rem;
             }
 
-            .section {
-                padding: 1.5rem;
-            }
+            /* Standard Rates (3 columns) */
+            .rates-table.standard th:nth-child(1),
+            .rates-table.standard td:nth-child(1) { width: 38%; }
+            .rates-table.standard th:nth-child(2),
+            .rates-table.standard td:nth-child(2) { width: 31%; }
+            .rates-table.standard th:nth-child(3),
+            .rates-table.standard td:nth-child(3) { width: 31%; }
 
-            .section h2 {
-                font-size: 1.8rem;
-            }
-
-            .contact-info {
-                grid-template-columns: 1fr;
-            }
+            /* Late Pickup (2 columns) */
+            .rates-table.late th:nth-child(1),
+            .rates-table.late td:nth-child(1) { width: 60%; }
+            .rates-table.late th:nth-child(2),
+            .rates-table.late td:nth-child(2) { width: 40%; }
         }
     </style>
 </head>
@@ -266,8 +282,8 @@
         <div class="section">
             <h2>Our Rates</h2>
             
-            <h3 style="color: #2e7d32; margin-top: 2rem; font-size: 1.5rem;">Standard Rates</h3>
-            <table class="rates-table">
+            <h3 style="color: #2e7d32; margin: 2rem 0 1rem; font-size: 1.5rem;">Standard Rates</h3>
+            <table class="rates-table standard">
                 <thead>
                     <tr>
                         <th>Number of Dogs</th>
@@ -294,9 +310,9 @@
                 </tbody>
             </table>
 
-            <h3 style="color: #2e7d32; margin-top: 2rem; font-size: 1.5rem;">Late Pickup Fees</h3>
-            <p style="margin: 1rem 0;">Pick up after 1:00 PM on overnight stays:</p>
-            <table class="rates-table">
+            <h3 style="color: #2e7d32; margin: 2.5rem 0 1rem; font-size: 1.5rem;">Late Pickup Fees</h3>
+            <p style="margin: 0 0 1rem;">Pick up after 1:00 PM on overnight stays:</p>
+            <table class="rates-table late">
                 <thead>
                     <tr>
                         <th>Number of Dogs</th>
@@ -333,7 +349,7 @@
                 
                 <div class="contact-item">
                     <h3>✉️ Email</h3>
-                    <a href="/cdn-cgi/l/email-protection#5522303b312c323420313021153d3a2138343c397b363a38"><span class="__cf_email__" data-cfemail="8afdefe4eef3edebffeeeffecae2e5fee7ebe3e6a4e9e5e7">[email&#160;protected]</span></a>
+                    <a href="mailto:info@riverviewkennels.com">info@riverviewkennels.com</a>
                 </div>
                 
                 <div class="contact-item">
@@ -359,4 +375,7 @@
 
     <footer>
         <p style="font-size: 1.2rem; margin-bottom: 0.5rem;">🐾 Riverview Kennels 🐾</p>
-        
+        <p>&copy; 2025 Wendy Gaudet – All Rights Reserved</p>
+    </footer>
+</body>
+</html>
