@@ -82,25 +82,36 @@
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 1.5rem;
             margin-top: 1.5rem;
+            justify-items: center;           /* Centers cards in grid cells */
         }
 
         .feature-item {
             background: linear-gradient(135deg, #e0f2f1 0%, #b2dfdb 100%);
-            padding: 1.2rem;
+            padding: 1.4rem 1.2rem;
             border-radius: 10px;
             border-left: 4px solid #4db6ac;
             transition: transform 0.3s ease;
+            text-align: center;              /* Centers text */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 130px;               /* More uniform card height */
+            width: 100%;                     /* Full width of grid cell */
+            max-width: 320px;                /* Optional cap for very wide screens */
         }
 
         .feature-item:hover {
-            transform: translateX(5px);
+            transform: translateY(-5px);     /* Softer hover effect when centered */
         }
 
         .feature-item::before {
-            content: "✓ ";
+            content: "✓";
             color: #2e7d32;
             font-weight: bold;
-            font-size: 1.3rem;
+            font-size: 2.2rem;
+            margin-bottom: 0.6rem;
+            display: block;
         }
 
         .rates-table {
@@ -200,14 +211,25 @@
             margin-top: 3rem;
         }
 
-        /* MOBILE TABLE FIXES – Allow wrapping, more space for first column */
+        /* Mobile adjustments */
         @media (max-width: 768px) {
             header h1 { font-size: 2.5rem; }
             header p  { font-size: 1.2rem; }
-            .section  { padding: 1.5rem; }
-            .section h2 { font-size: 1.8rem; }
+            .section  { padding: 1.8rem; }
+            .section h2 { font-size: 1.9rem; }
             .contact-info { grid-template-columns: 1fr; }
 
+            .feature-item {
+                padding: 1.5rem 1rem;
+                min-height: 140px;
+                font-size: 1.05rem;
+            }
+
+            .feature-item::before {
+                font-size: 2rem;
+            }
+
+            /* Table fixes from before – text wraps, no cutoff */
             .rates-table {
                 table-layout: fixed;
                 width: 100%;
@@ -216,17 +238,16 @@
             .rates-table th,
             .rates-table td {
                 padding: 0.9rem 0.7rem;
-                overflow-wrap: break-word;     /* modern wrap */
-                word-wrap: break-word;         /* fallback */
-                hyphens: auto;                 /* better breaking in English */
+                overflow-wrap: break-word;
+                word-wrap: break-word;
+                hyphens: auto;
             }
 
             .rates-table th {
-                font-size: 1.05rem;            /* slightly smaller header text on mobile */
+                font-size: 1.05rem;
                 line-height: 1.3;
             }
 
-            /* Standard Rates (3 columns) – give first column more room */
             .rates-table.standard th:nth-child(1),
             .rates-table.standard td:nth-child(1) { width: 44%; }
             .rates-table.standard th:nth-child(2),
@@ -234,20 +255,10 @@
             .rates-table.standard th:nth-child(3),
             .rates-table.standard td:nth-child(3) { width: 28%; }
 
-            /* Late Pickup (2 columns) */
             .rates-table.late th:nth-child(1),
             .rates-table.late td:nth-child(1) { width: 65%; }
             .rates-table.late th:nth-child(2),
             .rates-table.late td:nth-child(2) { width: 35%; }
-
-            /* Extra safety for very small phones (≤ 400px wide) */
-            @media (max-width: 400px) {
-                .rates-table th,
-                .rates-table td {
-                    font-size: 0.95rem;
-                    padding: 0.8rem 0.6rem;
-                }
-            }
         }
     </style>
 </head>
