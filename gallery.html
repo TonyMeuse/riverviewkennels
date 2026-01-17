@@ -249,7 +249,7 @@
     <footer>
         <p style="font-size: 1.2rem; margin-bottom: 0.5rem;">🐾 Riverview Kennels 🐾</p>
         <p>Where Your Pets Feel at Home</p>
-        <p style="margin-top: 1rem; opacity: 0.8;">© 2026 Riverview Kennels - All Rights Reserved</p>
+        <p style="margin-top: 1rem; opacity: 0.8;">© 2025 Riverview Kennels - All Rights Reserved</p>
     </footer>
 
     <script>
@@ -265,7 +265,7 @@
             item.onclick = () => openLightbox(i - 1);
             
             const img = document.createElement('img');
-            img.src = `image/gallery/photo${i}.png`;
+            img.src = `image/photo${i}.png`;
             img.alt = `Riverview Kennels Photo ${i}`;
             
             item.appendChild(img);
@@ -278,7 +278,7 @@
             const lightbox = document.getElementById('lightbox');
             const lightboxImg = document.getElementById('lightboxImg');
             
-            lightboxImg.src = `image/gallery/photo${index + 1}.png`;
+            lightboxImg.src = `image/photo${index + 1}.png`;
             
             lightbox.classList.add('active');
             document.body.style.overflow = 'hidden';
@@ -300,7 +300,7 @@
             }
             
             const lightboxImg = document.getElementById('lightboxImg');
-            lightboxImg.src = `image/gallery/photo${currentImageIndex + 1}.png`;
+            lightboxImg.src = `image/photo${currentImageIndex + 1}.png`;
         }
 
         // Close lightbox with Escape key
