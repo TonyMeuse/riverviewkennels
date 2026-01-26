@@ -3,7 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Photo Gallery - Riverview Kennels</title>
+    
+    <!-- SEO Meta Tags -->
+    <title>Photo Gallery - Riverview Kennels | Dog & Cat Boarding Facilities in Clare, NS</title>
+    <meta name="description" content="View photos of our dog and cat boarding facilities at Riverview Kennels in Clare, Nova Scotia. Climate-controlled kennels, outdoor play areas, and happy pets enjoying their stay!">
+    <meta name="keywords" content="Riverview Kennels photos, dog boarding facilities Clare NS, cat boarding pictures, kennel photos Nova Scotia, pet boarding gallery, Clare dog kennel">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Photo Gallery - Riverview Kennels">
+    <meta property="og:description" content="See our dog and cat boarding facilities in Clare, Nova Scotia">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://riverviewkennels.ca/gallery.html">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LKPX8GP096"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-LKPX8GP096');
+    </script>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap" rel="stylesheet">
@@ -241,7 +262,7 @@
         <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
         <span class="lightbox-nav lightbox-prev" onclick="changeImage(-1)">&#10094;</span>
         <div class="lightbox-content">
-            <img id="lightboxImg" src="" alt="Gallery Image">
+            <img id="lightboxImg" src="" alt="Riverview Kennels facilities">
         </div>
         <span class="lightbox-nav lightbox-next" onclick="changeImage(1)">&#10095;</span>
     </div>
@@ -266,7 +287,8 @@
             
             const img = document.createElement('img');
             img.src = `image/Photo${i}.PNG`;
-            img.alt = `Riverview Kennels Photo ${i}`;
+            img.alt = `Riverview Kennels dog and cat boarding facilities - Photo ${i}`;
+            img.loading = 'lazy'; // Improves page load performance
             
             item.appendChild(img);
             galleryGrid.appendChild(item);
@@ -279,6 +301,7 @@
             const lightboxImg = document.getElementById('lightboxImg');
             
             lightboxImg.src = `image/Photo${index + 1}.PNG`;
+            lightboxImg.alt = `Riverview Kennels facilities - Photo ${index + 1}`;
             
             lightbox.classList.add('active');
             document.body.style.overflow = 'hidden';
@@ -301,6 +324,7 @@
             
             const lightboxImg = document.getElementById('lightboxImg');
             lightboxImg.src = `image/Photo${currentImageIndex + 1}.PNG`;
+            lightboxImg.alt = `Riverview Kennels facilities - Photo ${currentImageIndex + 1}`;
         }
 
         // Close lightbox with Escape key
